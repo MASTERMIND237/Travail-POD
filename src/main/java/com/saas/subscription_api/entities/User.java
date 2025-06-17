@@ -20,6 +20,8 @@ public class User {
 
     private boolean active = true;
 
+    private String status;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Subscription> subscriptions;
 
@@ -27,10 +29,11 @@ public class User {
     public User() {
     }
 
-    public User(String fullName, String email, String password) {
+    public User(String fullName, String email, String password, String status) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
+        this.status = status;
     }
 
     // --- Getters & Setters ---
@@ -70,6 +73,14 @@ public class User {
         this.active = active;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public List<Subscription> getSubscriptions() {
         return subscriptions;
     }
@@ -77,4 +88,4 @@ public class User {
     public void setSubscriptions(List<Subscription> subscriptions) {
         this.subscriptions = subscriptions;
     }
-}
+} 

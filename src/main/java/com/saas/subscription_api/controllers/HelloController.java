@@ -1,4 +1,4 @@
-package com.saas.subscription_api.controller;
+package com.saas.subscription_api.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 
 @RestController
@@ -21,4 +23,5 @@ public class HelloController {
         response.put("message", "Hello Mastermind!");
         return response;
     }
+
 }

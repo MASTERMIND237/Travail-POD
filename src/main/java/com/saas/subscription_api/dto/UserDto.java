@@ -2,17 +2,28 @@ package com.saas.subscription_api.dto;
 
 public class UserDto {
     private Long id;
-    private String name;
+    private String fullName;
     private String email;
+    private String status;
 
     // Constructeurs
     public UserDto() {}
 
-    public UserDto(Long id, String name, String email) {
+    public UserDto(Long id, String fullName, String email, String status) {
         this.id = id;
-        this.name = name;
+        this.fullName = fullName;
+        this.email = email;
+        this.status = status;
+    }
+
+    /*
+     *     public UserDto(Long id, String fullName, String email) {
+        this.id = id;
+        this.fullName = fullName;
         this.email = email;
     }
+     */
+
 
     // Getters & Setters
     public Long getId() {
@@ -23,12 +34,12 @@ public class UserDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullname) {
+        this.fullName = fullname;
     }
 
     public String getEmail() {
@@ -37,5 +48,12 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

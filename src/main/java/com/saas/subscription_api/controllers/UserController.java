@@ -1,7 +1,6 @@
 package com.saas.subscription_api.controllers;
 
 import com.saas.subscription_api.dto.UserDto;
-import com.saas.subscription_api.entities.User;
 import com.saas.subscription_api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,14 +20,15 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public UserDto createUser(@RequestBody UserDto userDto) {
+        System.out.println("STATUT REÇU => " + userDto.getStatus());
+        return userService.createUser(userDto); 
     }
-
+    
     public UserDto getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
-    
+
     /*
      *     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id) {
@@ -42,4 +42,5 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
+
 }

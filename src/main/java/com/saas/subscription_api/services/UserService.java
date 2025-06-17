@@ -33,10 +33,21 @@ public class UserService {
         return userOptional.map(this::convertToDto).orElse(null);
     }
 
-    // Crée ou met à jour un utilisateur
+    public UserDto createUser(UserDto userDto) {
+        User user = new User();
+        user.setFullName(userDto.getFullName());
+        user.setEmail(userDto.getEmail());
+        user.setStatus(userDto.getStatus());
+        user = userRepository.save(user);
+        return new UserDto(user.getId(), user.getFullName(), user.getEmail(), user.getStatus());
+    }
+    
+    /*
+     *     // Crée ou met à jour un utilisateur
     public User saveUser(User user) {
         return userRepository.save(user);
     }
+     */
 
     // Supprime un utilisateur par son id
     public void deleteUser(Long id) {
@@ -49,6 +60,6 @@ public class UserService {
     }
 
       private UserDto convertToDto(User user) {
-        return new UserDto(user.getId(), user.getFullName(), user.getEmail());
+        return new UserDto(user.getId(), user.getFullName(), user.getEmail(), user.getStatus());
     }
 }
